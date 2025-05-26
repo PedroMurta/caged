@@ -1,14 +1,15 @@
-<h1 align='center'> 📘 Análise da Escassez de Motoristas no Brasil</h1>
+## 📘  Análise da Escassez de Motoristas no Brasil</h1>
 
 ### 🧭 Introdução
 
-  <p>  A escassez de motoristas profissionais no Brasil representa um desafio crescente para o setor de transporte e logística. A predominância do transporte rodoviário na movimentação de cargas e pessoas no país torna essa categoria essencial para o funcionamento da
-  economia.</p>
+  A escassez de motoristas profissionais no Brasil representa um desafio crescente para o setor de transporte e logística. A predominância do transporte rodoviário na movimentação de cargas e pessoas no país torna essa categoria essencial para o funcionamento da
+  economia.
 
- <p>
-Este estudo visa analisar, por meio dos dados abertos do CAGED (Cadastro Geral de Empregados e Desempregados), 
-as principais tendências trabalhistas associadas aos motoristas	formais do setor de transporte com foco no CBO 7825-10 	( Motoristas de Caminhão).
- </p>
+
+Este estudo visa analisar, por meio dos dados abertos do CAGED (Cadastro Geral de Empregados e Desempregados), as principais tendências trabalhistas associadas aos motoristas	formais do setor de transporte com foco no CBO **(Classificação Brasileira de Ocupações):**
+
+`7825-10 -> Motoristas de Caminhão (rotas regionais e internacionais).`
+
 
 ---
 
@@ -22,26 +23,26 @@ Para contextualizar a remuneração e sua adequação, o estudo incorporou dados
 
 As principais métricas utilizadas e suas respectivas formulações são:
 
-* **Taxa de Turnover:** Calculada como a proporção entre o número de demissões e a média entre o número de admissões e demissões no período, ou seja, $\text{Demissão} / ((\text{Admissão} + \text{Demissão}) / 2)$. Esta métrica reflete a intensidade da rotatividade na força de trabalho.
+- **Taxa de Turnover:** Calculada como a proporção entre o número de demissões e a média entre o número de admissões e demissões no período, ou seja, $\text{Demissão} / ((\text{Admissão} + \text{Demissão}) / 2)$. Esta métrica reflete a intensidade da rotatividade na força de trabalho.
 
-* **Rotatividade:** Definida como a proporção das demissões em relação ao total de movimentações (soma de admissões e demissões), ou seja, $\text{Demissão} / (\text{Admissão} + \text{Demissão})$.
+- **Rotatividade:** Definida como a proporção das demissões em relação ao total de movimentações (soma de admissões e demissões), ou seja, $\text{Demissão} / (\text{Admissão} + \text{Demissão})$.
 
-* **Atratividade:** Medida pela proporção das admissões em relação ao total de movimentações, ou seja, $\text{Admissão} / (\text{Admissão} + \text{Demissão})$. Esta métrica busca indicar o quão atraente o cargo é para novos talentos, em comparação com o volume de saídas.
+- **Atratividade:** Medida pela proporção das admissões em relação ao total de movimentações, ou seja, $\text{Admissão} / (\text{Admissão} + \text{Demissão})$. Esta métrica busca indicar o quão atraente o cargo é para novos talentos, em comparação com o volume de saídas.
 
-* **Retenção:** Calculada como a proporção do saldo líquido de contratações em relação às admissões, ou seja, $(\text{Admissão} - \text{Demissão}) / \text{Admissão}$. Esta métrica reflete a eficiência da empresa em reter ou compensar as saídas com novas entradas.
+- **Retenção:** Calculada como a proporção do saldo líquido de contratações em relação às admissões, ou seja, $(\text{Admissão} - \text{Demissão}) / \text{Admissão}$. Esta métrica reflete a eficiência da empresa em reter ou compensar as saídas com novas entradas.
 
-* **Poder de Compra:** Representa a vantagem salarial relativa, sendo o quociente entre o salário médio do CBO e o salário mínimo oficial, ou seja, $\text{Salário Médio} / \text{Salário Mínimo}$.
+- **Poder de Compra:** Representa a vantagem salarial relativa, sendo o quociente entre o salário médio do CBO e o salário mínimo oficial, ou seja, $\text{Salário Médio} / \text{Salário Mínimo}$.
 
-* **Escassez:** Uma métrica calculada para indicar a dificuldade de reposição, representando a proporção do saldo negativo de vagas em relação às admissões, ou seja, $\text{np.round(np.where(saldo < 0, np.abs(saldo) / admissao, 0), 2)}$. Um valor maior indica maior dificuldade em preencher as vagas perdidas.
+- **Escassez:** Uma métrica calculada para indicar a dificuldade de reposição, representando a proporção do saldo negativo de vagas em relação às admissões, ou seja, $\text{abs(saldo) / \text{admissao}}$. Um valor maior indica maior dificuldade em preencher as vagas perdidas.
 
 > `É importante ressaltar que, devido à natureza dos dados extraídos do CAGED, que podem apresentar pequenas revisões e variações ao longo do tempo, os valores numéricos apresentados e visualizados no relatório foram arredondados para facilitar a leitura e o entendimento das tendências gerais, sem prejuízo à fidedignidade da análise.`
 
 ---
 
 
-<h2 align='center'> 👥 Perfil Sociodemográfico </h2>
+### 👥 Perfil Sociodemográfico </h2>
 
-### Escolaridade
+#### Escolaridade
 
 - 📘  **Predominância do Ensino Médio Completo** desde 2011, ultrapassando 70% em 2024.
  Em 2010, o grau mais comum era o **Ensino Fundamental Completo**, mostrando uma **exigência crescente de escolaridade no setor**.
@@ -105,7 +106,7 @@ As principais métricas utilizadas e suas respectivas formulações são:
 
 
 
-<h2 align='center'> Evolução e Diagnóstico da Categoria <h2>
+## Evolução e Diagnóstico da Categoria 
 
 <div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
   <div style="max-width: 880px;">   
@@ -158,7 +159,7 @@ Ou seja, a base de entrada está cada vez mais velha.</li>
 
 --------------------------------------------------------------------------------------------
 
-<h2 align='center'> Indicadores de dinâmica de mercado<h2>
+## Indicadores de dinâmica de mercado
 
 
 <div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
@@ -196,15 +197,12 @@ Ou seja, a base de entrada está cada vez mais velha.</li>
 
 
 ----
-
-<h2 align='center'> Análise Econômica: o Salário como Fator Estruturante <h2>
-
+## Análise Econômica: o Salário como Fator Estruturante 
 
 <div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
   <div style="max-width: 880px;">   
   <h4> 🔹 Saldo vs Poder de Compra</h4> 
-    <ul>
-      <li><strong></li>
+    <ul>      
       <li><strong>2014–2017:</strong>  Tendência preocupante, saldo negativo até -54 mil. </li>
       <li><strong>2018–2024: </strong> Recuperação pós 2018, com perda de a partir de 2023.</li>
       <li><strong>Poder de Compra (salários mínimos): </strong> Pico em 2011 (~1.96) e queda contínua até 2024 (~1.74)</li>      
@@ -228,16 +226,61 @@ Ou seja, a base de entrada está cada vez mais velha.</li>
      <li><strong>🟠 Mínimo Necessário (DIEESE)</strong> Sobe de ~R$ 2.100 para mais de R$ 7.300.Mostra quanto uma família de 4 pessoas realmente precisaria para viver com dignidade no Brasil.</li>
     </ul>  
     <p>Mais contratações, menos poder de compra: um setor pressionado?<br></p>
-    <p>"Mesmo com aumento, o salário do caminhoneiro cobre menos de 35% do mínimo necessário para viver dignamente". O Salário médio dos caminhoneiros sempre ficou bem abaixo do mínimo necessário.<br>
+    <p>Mesmo com aumento, o salário do caminhoneiro cobre menos de 35% do mínimo necessário para viver dignamente". O Salário médio dos caminhoneiros sempre ficou bem abaixo do mínimo necessário.<br>
     Isso justifica a baixa atratividade da profissão, Não compensa o esforço, jornada e desgaste físico e leva à fuga de jovens e envelhecimento da força de trabalho.</p>
   </div>
 </div>
 
 -------
 
+## Matriz de Correlação
+
+|                   | salario_medio | salario_minimo | minimo_necessario | poder_compra | admissao | demissao | saldo_total | idade_media | taxa_turnover | rotatividade | atratividade | escassez | retencao |
+|-------------------|---------------|----------------|--------------------|---------------|-----------|-----------|--------------|--------------|----------------|---------------|----------------|-----------|-----------|
+| **salario_medio**       | 1.00          | 1.00           | 0.97               | -0.89         | 0.33      | 0.30      | 0.19         | 0.94         | -0.15          | -0.09         | 0.09           | -0.11     | 0.10      |
+| **salario_minimo**      | 1.00          | 1.00           | 0.98               | -0.91         | 0.37      | 0.34      | 0.21         | 0.93         | -0.17          | -0.11         | 0.11           | -0.12     | 0.12      |
+| **minimo_necessario**   | 0.97          | 0.98           | 1.00               | -0.93         | 0.50      | 0.45      | 0.31         | 0.89         | -0.24          | -0.18         | 0.18           | -0.14     | 0.19      |
+| **poder_compra**        | -0.89         | -0.91          | -0.93              | 1.00          | -0.40     | -0.36     | -0.25        | -0.85        | 0.15           | 0.09          | -0.09          | 0.07      | -0.12     |
+| **admissao**            | 0.33          | 0.37           | 0.50               | -0.40         | 1.00      | 0.95      | 0.47         | 0.08         | -0.35          | -0.31         | 0.31           | -0.35     | 0.34      |
+| **demissao**            | 0.30          | 0.34           | 0.45               | -0.36         | 0.95      | 1.00      | 0.18         | 0.01         | -0.06          | -0.02         | 0.02           | -0.09     | 0.05      |
+| **saldo_total**         | 0.19          | 0.21           | 0.31               | -0.25         | 0.47      | 0.18      | 1.00         | 0.24         | -0.98          | -0.96         | 0.96           | -0.86     | 0.98      |
+| **idade_media**         | 0.94          | 0.93           | 0.89               | -0.85         | 0.08      | 0.01      | 0.24         | 1.00         | -0.23          | -0.18         | 0.18           | -0.13     | 0.18      |
+| **taxa_turnover**       | -0.15         | -0.17          | -0.24              | 0.15          | -0.35     | -0.06     | -0.98        | -0.23        | 1.00           | 0.99          | -0.99          | 0.90      | -1.00     |
+| **rotatividade**        | -0.09         | -0.11          | -0.18              | 0.09          | -0.31     | -0.02     | -0.96        | -0.18        | 0.99           | 1.00          | -1.00          | 0.89      | -0.99     |
+| **atratividade**        | 0.09          | 0.11           | 0.18               | -0.09         | 0.31      | 0.02      | 0.96         | 0.18         | -0.99          | -1.00         | 1.00           | -0.89     | 0.99      |
+| **escassez**            | -0.11         | -0.12          | -0.14              | 0.07          | -0.35     | -0.09     | -0.86        | -0.13        | 0.90           | 0.89          | -0.89          | 1.00      | -0.92     |
+| **retencao**            | 0.10          | 0.12           | 0.19               | -0.12         | 0.34      | 0.05      | 0.98         | 0.18         | -1.00          | -0.99         | 0.99           | -0.92     | 1.00      |
+
+### Interpretação:
+
+## 🔗 Resumo das Correlações Relevantes 
+
+| Variáveis                              | Correlação | Interpretação                                                                       |
+|----------------------------------------|------------|-------------------------------------------------------------------------------------|
+| Salário Médio × Idade Média            | +0.94      | Profissionais mais velhos/experientes ganham mais. Jovens entram menos ou saem mais cedo.|
+| Salário Médio × Salário Mínimo         | +1.00      | O salário cresce, mas apenas acompanha o mínimo legal.                             |
+| Salário Médio × Mínimo Necessário      | +0.97      | Os salários seguem o custo estimado pelo DIEESE, mas sempre abaixo do ideal.       |
+| Poder de Compra × Mínimo Necessário    | –0.93      | Quanto maior o custo de vida, menor o poder de compra do caminhoneiro, aumento dos salários não está acompanhando o aumento do custo de vida ou da inflação.|
+| Poder de Compra × Idade Média          | –0.85      | A força de trabalho envelhece e compra menos com o que ganha.                      |
+| Admissão × Demissão                    | +0.95      | Alta contratação vem junto com alta demissão — o setor gira muito.                 |
+| Saldo Total × Taxa de Turnover         | –0.98      | Quando o setor está perdendo trabalhadores, o turnover explode.                    |
+| Saldo Total × Atratividade             | +0.96      | Mais contratações líquidas tornam a profissão mais atrativa.                       |
+| Saldo Total × Retenção                 | +0.98      | Onde o setor cresce, ele também consegue manter melhor seus profissionais.         |
+| Atratividade × Rotatividade            | –1.00      | Quanto mais pessoas saem, menos o setor atrai novas.                               |
+| Escassez × Turnover                    | +0.90      | Quanto mais gente sai rapidamente, maior a escassez de mão de obra.                |
+| Escassez × Retenção                    | –0.92      | Quanto pior a retenção, maior a escassez de motoristas.                            |
+
+
+- **Quanto maior o salário, maior a idade média:** Há uma forte correlação positiva entre salário (médio e mínimo) e idade média, sugerindo que a experiência e a idade da força de trabalho estão ligadas a salários mais altos;
+- **Quanto maior o custo de vida, menor o poder de compra:** Mesmo que os salários nominais subam, eles não acompanham o custo real de vida (calculado pelo DIEESE), resultando em um menor poder de compra. Isso aponta para desafios em manter o poder aquisitivo; 
+- **Rotatividade alta = perda de profissionais:** Quanto mais gente sai e entra rapidamente, maior a perda líquida de trabalhadores, o que é evidenciado pela forte correlação negativa entre Saldo Total e Taxa de Turnover/Rotatividade.
+- **Menor entrada de novos profissionais = menos atratividade e retenção:** A atratividade e a retenção são diretamente impactadas pela rotatividade, com uma correlação negativa quase perfeita. Ou seja, quanto mais pessoas saem, menos o setor atrai e retém novos profissionais.;
+- **Escassez está ligada à instabilidade:**  A escassez de mão de obra se intensifica nos anos em que há alta rotatividade, baixa retenção e poder de compra em queda. Isso confirma que o problema não está apenas na entrada de novos profissionais, mas também nas condições para mantê-los na profissão.
+
+
 -----
 
-<h2 align='center'> 🔍 Limitações do Estudo <h2>
+## 🔍 Limitações do Estudo
 
 
 - **CAGED não capta autônomos nem MEIs**, o que deixa de fora uma parcela significativa da força de trabalho, especialmente:
@@ -253,7 +296,7 @@ Ou seja, a base de entrada está cada vez mais velha.</li>
 
 -----
 
-<h2 align='center'> 🚫 Fatores Qualitativos da Profissão <h2>
+## 🚫 Fatores Qualitativos da Profissão
 
 - 💰 **Remuneração instável:** [Salários variáveis e muitas vezes insuficientes frente às exigências do trabalho.](https://estradao.estadao.com.br/caminhoes/cnt-e-governo-criam-programa-para-diminuir-falta-de-caminhoneiros-brasil/)
 - 🕐 **Jornada exaustiva:** [Longas horas de trabalho com pouco suporte na estrada.](https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2023/novembro/operacao-jornada-legal-flagra-motoristas-em-jornadas-exaustivas)
@@ -264,11 +307,13 @@ Ou seja, a base de entrada está cada vez mais velha.</li>
 
 ---------------
 
-<h2 align='center'> Conclusão <h2>
+## 📌  Conclusão 
 
 A análise dos dados do CAGED revela um cenário preocupante para a categoria de motoristas de caminhão no Brasil. A força de trabalho está envelhecendo rapidamente, e a entrada de novos profissionais não tem sido suficiente para compensar a saída dos mais experientes. Esse desequilíbrio evidencia um risco real de colapso no setor nos próximos anos.
 
 Embora múltiplos fatores contribuam para essa escassez, os dados apontam que a questão salarial é o principal obstáculo. A perda de poder de compra, somada às condições adversas de trabalho, tem afastado jovens da profissão e dificultado a permanência dos que já atuam na área.
+
+A escassez não é só demográfica — ela é estrutural, econômica e também resultado de instabilidade dentro da própria categoria.
 
 Diante desse cenário, é fundamental a articulação de políticas públicas que promovam a formação profissional, incentivem a entrada de jovens, ampliem a participação de mulheres na categoria e melhorem as condições estruturais da atividade. Sem essas medidas, a tendência é de agravamento da crise de mão de obra no transporte rodoviário nos próximos anos.
 
