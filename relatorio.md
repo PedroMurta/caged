@@ -1,320 +1,380 @@
-## 📘  Análise da Escassez de Motoristas no Brasil</h1>
-
-### 🧭 Introdução
-
-  A escassez de motoristas profissionais no Brasil representa um desafio crescente para o setor de transporte e logística. A predominância do transporte rodoviário na movimentação de cargas e pessoas no país torna essa categoria essencial para o funcionamento da
-  economia.
-
-
-Este estudo visa analisar, por meio dos dados abertos do CAGED (Cadastro Geral de Empregados e Desempregados), as principais tendências trabalhistas associadas aos motoristas	formais do setor de transporte com foco no CBO **(Classificação Brasileira de Ocupações):**
-
-`7825-10 -> Motoristas de Caminhão (rotas regionais e internacionais).`
-
+# 📘 Análise da Escassez de Motoristas no Brasil
 
 ---
 
-###  Metodologia e Origem dos Dados
-Este Estudo apresenta uma análise aprofundada da dinâmica do mercado de trabalho para o CBO de **Motorista de Caminhão** no Brasil, utilizando uma base de dados robusta e de fontes oficiais. A análise principal é fundamentada em dados abertos do **CAGED (Cadastro Geral de Empregados e Desempregados)**, fornecidos pelo Ministério do Trabalho e Emprego (MTE) via FTP, abrangendo o período de 2010 a 2024.
-Para garantir a abrangência e a consistência histórica, os dados foram compilados da seguinte forma:
-* Informações de **2020 até 2024** foram obtidas via FTP do **Novo CAGED** (ftp://ftp.mtps.gov.br/pdet/microdados).
-* Dados de **2010 a 2019** foram extraídos majoritariamente via FTP do **CAGED Antigo**; para garantir a completude da série histórica, dados corrompidos foram complementados com uma base alternativa.
+## 🧭 1. Introdução
 
-Para contextualizar a remuneração e sua adequação, o estudo incorporou dados do **DIEESE (Departamento Intersindical de Estatística e Estudos Socioeconômicos)**, uma instituição reconhecida por sua confiabilidade em análises socioeconômicas. Em particular, a série histórica do **Salário Mínimo Necessário** para uma família de quatro pessoas, calculada pelo DIEESE, foi utilizada para avaliar o poder de compra real dos salários na categoria de motoristas de caminhão.
+A escassez de motoristas profissionais no Brasil representa um desafio crescente e multifacetado para o setor de transporte e logística. Dada a predominância do modal rodoviário na movimentação de cargas e pessoas no país, a atuação dessa categoria é essencial para o pleno funcionamento da economia nacional.
 
-As principais métricas utilizadas e suas respectivas formulações são:
+Este estudo tem como objetivo principal analisar, por meio dos dados abertos do CAGED (Cadastro Geral de Empregados e Desempregados), as principais tendências trabalhistas associadas aos motoristas formais do setor de transporte. Mais do que identificar tendências, buscamos oferecer evidências sólidas para decisões estratégicas: **Por que estamos perdendo motoristas? O que afasta os jovens dessa carreira? E o que pode ser feito – agora – para evitar um colapso anunciado?**
 
-- **Taxa de Turnover:** Calculada como a proporção entre o número de demissões e a média entre o número de admissões e demissões no período, ou seja, $\text{Demissão} / ((\text{Admissão} + \text{Demissão}) / 2)$. Esta métrica reflete a intensidade da rotatividade na força de trabalho.
+Todo o estudo foi conduzido com foco no CBO (Classificação Brasileira de Ocupações) específico:
 
-- **Rotatividade:** Definida como a proporção das demissões em relação ao total de movimentações (soma de admissões e demissões), ou seja, $\text{Demissão} / (\text{Admissão} + \text{Demissão})$.
-
-- **Atratividade:** Medida pela proporção das admissões em relação ao total de movimentações, ou seja, $\text{Admissão} / (\text{Admissão} + \text{Demissão})$. Esta métrica busca indicar o quão atraente o cargo é para novos talentos, em comparação com o volume de saídas.
-
-- **Retenção:** Calculada como a proporção do saldo líquido de contratações em relação às admissões, ou seja, $(\text{Admissão} - \text{Demissão}) / \text{Admissão}$. Esta métrica reflete a eficiência da empresa em reter ou compensar as saídas com novas entradas.
-
-- **Poder de Compra:** Representa a vantagem salarial relativa, sendo o quociente entre o salário médio do CBO e o salário mínimo oficial, ou seja, $\text{Salário Médio} / \text{Salário Mínimo}$.
-
-- **Escassez:** Uma métrica calculada para indicar a dificuldade de reposição, representando a proporção do saldo negativo de vagas em relação às admissões, ou seja, $\text{abs(saldo) / \text{admissao}}$. Um valor maior indica maior dificuldade em preencher as vagas perdidas.
-
-> `É importante ressaltar que, devido à natureza dos dados extraídos do CAGED, que podem apresentar pequenas revisões e variações ao longo do tempo, os valores numéricos apresentados e visualizados no relatório foram arredondados para facilitar a leitura e o entendimento das tendências gerais, sem prejuízo à fidedignidade da análise.`
+* **7825-10 | Motoristas de Caminhão (rotas regionais e internacionais).**
 
 ---
 
+## 📚 2. Metodologia e Origem dos Dados
 
-### 👥 Perfil Sociodemográfico </h2>
+Este estudo apresenta uma análise aprofundada da dinâmica do mercado de trabalho para o CBO de **Motorista de Caminhão** no Brasil, utilizando uma base de dados robusta e proveniente de fontes oficiais. A análise principal foi desenvolvida com dados abertos do **CAGED (Cadastro Geral de Empregados e Desempregados)**, disponibilizados pelo Ministério do Trabalho e Emprego (MTE) via FTP, abrangendo o período de **2010 a 2024**.
 
-#### Escolaridade
+Para garantir a consistência e completude da série histórica, os dados foram organizados da seguinte forma:
 
-- 📘  **Predominância do Ensino Médio Completo** desde 2011, ultrapassando 70% em 2024.
- Em 2010, o grau mais comum era o **Ensino Fundamental Completo**, mostrando uma **exigência crescente de escolaridade no setor**.
-- Isso pode estar relacionado a:
-  - Normas regulatórias mais rigorosas;
-  - Adoção de tecnologias embarcadas;
-  - Redução do interesse de candidatos com maior escolaridade por conta da baixa valorização da profissão.
+* **Dados de 2020 a 2024:** Extraídos do **Novo CAGED** via FTP.
+    * `ftp://ftp.mtps.gov.br/pdet/microdados`
+* **Dados de 2010 a 2019:** Obtidos do **CAGED Antigo** e, quando necessário, complementados por bases alternativas para correção de arquivos corrompidos.
+
+Para contextualizar a remuneração, foram incorporados dados do **DIEESE (Departamento Intersindical de Estatística e Estudos Socioeconômicos)**, com foco na série histórica do **Salário Mínimo Necessário**, uma referência para o custo de vida digno de uma família brasileira de quatro pessoas.
+
+Além disso, o estudo foi **expandido** para incluir informações do **Registro Nacional de Condutores Habilitados (RENACH/DENATRAN)**, acessível em:
+* `https://www.gov.br/transportes/pt-br/assuntos/transito/conteudo-Senatran/estatisticas-quantidade-de-habilitados-denatran`
+
+Com isso, foi possível estimar o **estoque de motoristas habilitados com categorias C, D e E**, com destaque para os ativos com menos de 70 anos, permitindo uma visão mais abrangente do potencial de mão de obra.
+
+Informações complementares de *saldos* foram extraídas da **RAIS 2023**, também fornecida pelo MTE, para enriquecer a perspectiva sobre o impacto dos eventos históricos.
+
+---
+
+### 🔧 Métricas e Indicadores-Chave
+
+Para avaliar a entrada, permanência e saída de profissionais no setor, foram utilizadas as seguintes métricas:
+
+* **🔁 Taxa de Turnover**
+    Mede o ritmo de trocas no setor, refletindo a volatilidade.
+    $$ \text{Taxa de Turnover} = \frac{\text{Demissão}}{\left( \frac{\text{Admissão} + \text{Demissão}}{2} \right)} $$
+    > *Quanto mais alta, maior a instabilidade – ou seja, o setor perde e ganha muitos profissionais com frequência.*
+
+* **🔄 Rotatividade**
+    Indica o peso das demissões no total de movimentações.
+    $$ \text{Rotatividade} = \frac{\text{Demissão}}{(\text{Admissão} + \text{Demissão})} $$
+    > *Alta rotatividade significa que poucas pessoas permanecem na profissão, o que pode indicar desinteresse ou condições desfavoráveis.*
+
+* **📈 Atratividade**
+    Representa o apelo da profissão para novos profissionais.
+    $$ \text{Atratividade} = \frac{\text{Admissão}}{(\text{Admissão} + \text{Demissão})} $$
+    > *Quanto maior, mais pessoas estão entrando no setor – um sinal de que a carreira ainda é vista como viável ou desejável.*
+
+* **🔒 Retenção**
+    Avalia a capacidade de manter quem é contratado.
+    $$ \text{Retenção} = \frac{(\text{Admissão} - \text{Demissão})}{\text{Admissão}} $$
+    > *Retenção alta significa que o setor consegue manter seus trabalhadores por mais tempo, reduzindo perdas.*
+
+* **💸 Poder de Compra**
+    Compara o salário dos motoristas com o salário mínimo, fornecendo uma visão da capacidade aquisitiva.
+    $$ \text{Poder de Compra} = \frac{\text{Salário Médio}}{\text{Salário Mínimo}} $$
+    > *Quanto maior, mais o trabalhador consegue comprar com seu salário. Queda nessa relação significa perda de poder aquisitivo.*
+
+* **🚨 Escassez**
+    Estima a dificuldade de reposição de profissionais, especialmente em cenários de perda líquida de vagas.
+    $$ \text{Escassez} = \frac{|\text{Saldo Negativo}|}{\text{Admissão}} $$
+    > *Se o saldo for negativo e proporcionalmente alto, indica que o setor está perdendo mais profissionais do que consegue repor – sinal claro de escassez.*
+
+> ⚠️ **Nota Importante:** Os dados do CAGED podem passar por pequenas revisões com o tempo. Neste estudo, os valores foram arredondados para facilitar a leitura e focar nas **tendências e padrões**, sem prejuízo da confiabilidade geral da análise.
+
+---
+
+## 👥 3. Perfil Sociodemográfico dos Motoristas
+
+### 3.1 Escolaridade
+
+A análise da escolaridade dos motoristas de caminhão revela uma clara evolução no perfil educacional exigido pela profissão:
+
+* **📘 Predominância do Ensino Médio Completo:** Desde 2011, essa faixa superou as demais, ultrapassando 70% em 2024. Em 2010, o grau mais comum era o **Ensino Fundamental Completo**, demonstrando uma **exigência crescente de escolaridade no setor**.
+* **Implicações:** Essa mudança pode estar relacionada a:
+    * Normas regulatórias mais rigorosas;
+    * Adoção de tecnologias embarcadas nos veículos, que demandam maior conhecimento;
+    * Redução do interesse de candidatos com maior escolaridade devido à percepção de baixa valorização da profissão.
 
 | Ano  | Fundamental Completo | Fundamental Incompleto | Médio Completo | Médio Incompleto | Superior Completo | Superior Incompleto |
-|------|----------------------|------------------------|-----------------|------------------|-------------------|---------------------|
-| 2010 | 44.83%               | 3.35%                  | 39.41%          | 11.69%           | 0.26%             | 0.44%               |
-| 2011 | 41.02%               | 3.52%                  | 43.18%          | 11.54%           | 0.29%             | 0.44%               |
-| 2012 | 38.05%               | 3.36%                  | 46.87%          | 10.95%           | 0.30%             | 0.47%               |
-| 2013 | 35.73%               | 3.28%                  | 49.45%          | 10.67%           | 0.40%             | 0.48%               |
-| 2014 | 33.72%               | 3.26%                  | 51.83%          | 10.28%           | 0.40%             | 0.51%               |
-| 2015 | 32.14%               | 3.15%                  | 53.74%          | 9.96%            | 0.50%             | 0.51%               |
-| 2016 | 31.21%               | 3.08%                  | 55.11%          | 9.65%            | 0.43%             | 0.52%               |
-| 2017 | 30.31%               | 3.21%                  | 56.33%          | 9.19%            | 0.45%             | 0.52%               |
-| 2018 | 30.06%               | 3.66%                  | 56.04%          | 9.16%            | 0.50%             | 0.58%               |
-| 2019 | 28.43%               | 3.62%                  | 57.77%          | 8.99%            | 0.55%             | 0.60%               |
-| 2020 | 25.00%               | 3.07%                  | 62.40%          | 8.18%            | 0.59%             | 0.59%               |
-| 2021 | 22.66%               | 2.70%                  | 65.21%          | 7.97%            | 0.65%             | 0.61%               |
-| 2022 | 21.03%               | 2.61%                  | 67.07%          | 7.66%            | 0.71%             | 0.71%               |
-| 2023 | 19.65%               | 2.31%                  | 68.84%          | 7.44%            | 0.80%             | 0.73%               |
-| 2024 | 18.69%               | 2.22%                  | 70.00%          | 7.29%            | 0.91%             | 0.68%               |
-| 2025 | 17.99%               | 2.23%                  | 70.64%          | 7.29%            | 0.92%             | 0.69%               |
+| :--- | :------------------- | :--------------------- | :------------- | :--------------- | :---------------- | :------------------ |
+| 2010 | 44.83%               | 3.35%                  | 39.41%         | 11.69%           | 0.26%             | 0.44%               |
+| 2011 | 41.02%               | 3.52%                  | 43.18%         | 11.54%           | 0.29%             | 0.44%               |
+| 2012 | 38.05%               | 3.36%                  | 46.87%         | 10.95%           | 0.30%             | 0.47%               |
+| 2013 | 35.73%               | 3.28%                  | 49.45%         | 10.67%           | 0.40%             | 0.48%               |
+| 2014 | 33.72%               | 3.26%                  | 51.83%         | 10.28%           | 0.40%             | 0.51%               |
+| 2015 | 32.14%               | 3.15%                  | 53.74%         | 9.96%            | 0.50%             | 0.51%               |
+| 2016 | 31.21%               | 3.08%                  | 55.11%         | 9.65%            | 0.43%             | 0.52%               |
+| 2017 | 30.31%               | 3.21%                  | 56.33%         | 9.19%            | 0.45%             | 0.52%               |
+| 2018 | 30.06%               | 3.66%                  | 56.04%         | 9.16%            | 0.50%             | 0.58%               |
+| 2019 | 28.43%               | 3.62%                  | 57.77%         | 8.99%            | 0.55%             | 0.60%               |
+| 2020 | 25.00%               | 3.07%                  | 62.40%         | 8.18%            | 0.59%             | 0.59%               |
+| 2021 | 22.66%               | 2.70%                  | 65.21%         | 7.97%            | 0.65%             | 0.61%               |
+| 2022 | 21.03%               | 2.61%                  | 67.07%         | 7.66%            | 0.71%             | 0.71%               |
+| 2023 | 19.65%               | 2.31%                  | 68.84%         | 7.44%            | 0.80%             | 0.73%               |
+| 2024 | 18.69%               | 2.22%                  | 70.00%         | 7.29%            | 0.91%             | 0.68%               |
 
+---
 
------
+### 3.2 Gênero
 
-### Gênero
+A distribuição por gênero no setor de motoristas de caminhão formal continua a ser majoritariamente masculina, com poucas mudanças ao longo dos anos:
 
-- 👨 **Predomínio esmagador do sexo masculino** em toda a série histórica — **mais de 98% até 2024**.
-- Apesar de um **crescimento tímido da participação feminina**, o setor ainda carece de políticas públicas e privadas de **inclusão de mulheres** na condução de veículos pesados.
-- Fatores como **ambiente de trabalho hostil, segurança nas estradas e ausência de infraestrutura básica** contribuem para a baixa entrada feminina.
+* **👨 Predomínio Masculino:** O sexo masculino representou consistentemente **mais de 98%** dos motoristas em toda a série histórica até 2024.
+* **Crescimento Tímido da Participação Feminina:** Apesar de um crescimento modesto (de 0.73% em 2010 para 1.56% em 2024), o setor ainda carece de políticas públicas e privadas robustas para a **inclusão de mulheres** na condução de veículos pesados.
+* **Barreiras para a Inclusão Feminina:** Fatores como o ambiente de trabalho historicamente hostil, desafios de segurança nas estradas e a ausência de infraestrutura básica adequada contribuem para a baixa entrada feminina na profissão.
 
+| Ano  | Homens | Mulheres |
+| :--- | :----- | :------- |
+| 2010 | 99.27% | 0.73%    |
+| 2011 | 99.21% | 0.79%    |
+| 2012 | 99.17% | 0.83%    |
+| 2013 | 99.14% | 0.86%    |
+| 2014 | 99.01% | 0.99%    |
+| 2015 | 99.02% | 0.98%    |
+| 2016 | 99.04% | 0.96%    |
+| 2017 | 99.07% | 0.93%    |
+| 2018 | 99.16% | 0.84%    |
+| 2019 | 99.10% | 0.90%    |
+| 2020 | 98.97% | 1.03%    |
+| 2021 | 98.82% | 1.18%    |
+| 2022 | 98.66% | 1.34%    |
+| 2023 | 98.57% | 1.43%    |
+| 2024 | 98.44% | 1.56%    |
 
+---
 
-| Ano  | Homem  | Mulher |
-|------|--------|--------|
-| 2010 | 99.27% | 0.73%  |
-| 2011 | 99.21% | 0.79%  |
-| 2012 | 99.17% | 0.83%  |
-| 2013 | 99.14% | 0.86%  |
-| 2014 | 99.01% | 0.99%  |
-| 2015 | 99.02% | 0.98%  |
-| 2016 | 99.04% | 0.96%  |
-| 2017 | 99.07% | 0.93%  |
-| 2018 | 99.16% | 0.84%  |
-| 2019 | 99.10% | 0.90%  |
-| 2020 | 98.97% | 1.03%  |
-| 2021 | 98.82% | 1.18%  |
-| 2022 | 98.66% | 1.34%  |
-| 2023 | 98.57% | 1.43%  |
-| 2024 | 98.44% | 1.56%  |
-| 2025 | 98.41% | 1.59%  |
+## 📈 4. Evolução e Diagnóstico da Categoria
 
+### 4.1 🔹 Saldo de Vagas com Eventos Históricos
 
+O gráfico de saldo de vagas por ano, contextualizado com eventos econômicos e sociais, oferece uma visão clara da sensibilidade do setor a fatores externos.
 
---------------------------------------------------------------------------
-
-
-
-## Evolução e Diagnóstico da Categoria 
-
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <div style="max-width: 880px;">   
-  <h4> 🔹 Saldo de empregos com eventos históricos</h4> 
-    <ul>
-      <li><strong>2010–2013: </strong> Crescimento moderado → contexto de expansão econômica pós-crise global (2008/2009).</li>
-      <li><strong>2014–2016:</strong> Saldo negativo severo, principalmente em 2016 (–54.000). (`Coincide com a Recessão Brasileira — queda no PIB, desemprego generalizado, retração do setor logístico.`)</li>
-      <li><strong>2017–2021:</strong> Recuperação lenta e gradual, com sinais de estabilização..</li>
-      <li><strong>2022:</strong> Ano atípico; Pode refletir recuperação pós-COVID + aumento da demanda logística (E-Commerce) + estímulos econômicos.</li>
-      <li><strong>2023-2024:</strong> Nova queda, sugerindo perda de fôlego.</li>
-    </ul>
-    <p> Eventos econômicos: Recessão (2014-2016)| Greve dos caminhoneiros (2018)| Pandemia (2020) | Guerra Rússia–Ucrânia (2022)</p>
-  </div>
-  <img src="1_saldo_eventos.png" style="width: 880px;">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="1_saldo_eventos.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>2010–2013: Crescimento Moderado:</strong> Período de expansão econômica pós-crise global (2008/2009), refletindo um saldo positivo e consistente de vagas.</li>
+            <li><strong>2014–2016: Saldo Negativo Impactante:</strong> Destaque para 2016, com um saldo de **–54.000 vagas**. Este período coincide diretamente com a Recessão Brasileira, caracterizada por queda acentuada do PIB, desemprego generalizado e retração do setor logístico.</li>
+            <li><strong>2017–2021: Recuperação Lenta e Gradual:</strong> Sinais de estabilização e recuperação, com saldos voltando a ser positivos, embora em patamares mais modestos.</li>
+            <li><strong>2022: Ano Atípico de Recuperação:</strong> Um ano de forte crescimento no saldo. Pode refletir a recuperação pós-COVID-19, um aumento da demanda logística impulsionada pelo e-commerce, e estímulos econômicos.</li>
+            <li><strong>2023-2024: Retorno a Patamares Estáveis:</strong> O saldo volta a níveis mais consistentes, indicando uma fase de estabilização após as grandes flutuações.</li>
+        </ul>
+        <p>➡️ <i style="font-weight: bold; color: #FF0000;">Eventos Chave no Período:</i> Recessão Brasileira (2014-2016) | Greve dos Caminhoneiros (2018) | Pandemia (2020) | Guerra Rússia–Ucrânia (2022).</p>
+    </div>
 </div>
 
- ----------------
+---
 
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <img src="2_distribuicao_admissao_faixa_etaria.png" style="width: 800px; margin-right: 30px;">
-  <div style="max-width: 880px;">
-    <h4>🔹 Admissões por faixa etária</h4>
-    <ul>
-      <li><strong>Queda dos Jovens:</strong>A faixa 18-24 cai de ~8 % em 2010 para ~4 % em 2024. A faixa 25-29 também recua de ~19 % para ~11 %. Isso indica que menos jovens estão entrando na carreira. </li>
-      <li><strong>Aumento idade intermediária:</strong>A faixa 30-39 sobe de ~38 % para ~33 % (pico ~40 % em 2016). As faixas 40-49 e 50-64 crescem de ~24 % e ~12 % para ~32 % e ~18 %, respectivamente.
-Ou seja, a base de entrada está cada vez mais velha.</li>    
-    </ul>
-    <p>Sinal de Escassez:</strong>Com poucos recém-entrantes, o setor tende a envelhecer e, a médio prazo, enfrentar falta de força de trabalho qualificada.</p>
-  </div>
+### 4.2 🔹 Admissões por Faixa Etária
+
+A distribuição das admissões por faixa etária revela um dos maiores desafios para a renovação da categoria: o envelhecimento da base de entrada.
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="2_distribuicao_admissao_faixa_etaria.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>📉 Queda Acentuada dos Jovens:</strong> A faixa etária de 18-24 anos, que representava aproximadamente 8% das admissões em 2010, cai para cerca de 4% em 2024. A faixa de 25-29 anos também recua significativamente, de aproximadamente 19% para 11%. Isso indica que <i>cada vez menos jovens estão ingressando na carreira de motorista de caminhão formal</i>.</li>
+            <li><strong>⬆️ Aumento da Idade Intermediária:</strong> Em contraste, a faixa de 30-39 anos, embora com uma leve redução percentual geral, atingiu um pico de ~40% em 2016. As faixas de 40-49 e 50-64 anos mostram crescimento contínuo, subindo de ~24% e ~12% para ~32% e ~18% respectivamente.
+            Ou seja, a base de entrada para a profissão está se tornando progressivamente mais velha.</li>
+        </ul>
+        <p>🚨 <i style="font-weight: bold; color: #FF0000;">Sinal de Escassez Futura:</i> Com poucos recém-entrantes e uma base de novos profissionais cada vez mais madura, o setor tende a envelhecer rapidamente e, a médio e longo prazo, enfrentar uma severa falta de força de trabalho qualificada e apta para as demandas físicas da profissão.</p>
+    </div>
 </div>
 
--------------------------------------------------------------------------------------------------------------------------------
+---
 
------
+### 4.3 🔹 Idade Média dos Motoristas
 
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <div style="max-width: 880px;">   
-  <h4> 🔹 Idade média dos motoristas</h4> 
-    <ul>
-      <li><strong>Tendência clara de envelhecimento: </strong> A idade média sobe de 37,02 anos (2010) para 40,80 anos (2024). Crescimento de quase 4 anos em um intervalo de 15 anos, o que é expressivo considerando uma profissão operacional.</li>
-      <li><strong>Aumento mais forte entre 2014–2018:</strong> Crescimento percentual mais acentuado (até +2,20%). Corresponde ao mesmo período em que o gráfico anterior mostrou queda de jovens nas admissões</li>
-      <li><strong>Estabilização recente com flutuação leve: </strong> Pequenas variações entre 2020 e 2024 (+/- 0,05%), sugerindo saturação ou limitação de entrada/saída. Pode refletir envelhecimento do estoque ativo com baixa renovação.</li>     
-    </ul>
-    <p> Menos jovens estão entrando, os que estão, já entram mais velhos e a força de trabalho atual está envelhecendo, sem substituição à altura.</p>
-  </div>
-  <img src="3_evolucao_idade_media.png" style="width: 880px;">
+Complementando a análise anterior, a evolução da idade média dos motoristas de caminhão formal confirma a tendência de envelhecimento da categoria.
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="3_evolucao_idade_media.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>⬆️ Tendência Clara de Envelhecimento:</strong> A idade média dos motoristas sobe de 37,02 (aproximadamente 37 anos e 2 meses) anos em 2010 para 40,80 (aproximadamente 40 anos e 10 meses) anos em 2024. Um crescimento de quase 4 anos em um intervalo de 15 anos é expressivo, especialmente para uma profissão que exige vigor físico.</li>
+            <li><strong>Pico de Crescimento entre 2014–2018:</strong> O aumento percentual mais acentuado (até +2,20%) ocorre neste período, que coincide com a queda de jovens nas admissões, reforçando a conexão entre a falta de renovação e o envelhecimento geral da categoria.</li>
+            <li><strong>Estabilização Recente com Leve Flutuação:</strong> Pequenas variações entre 2020 e 2024 (+/- 0,05%) podem sugerir uma saturação ou limitação na entrada/saída de profissionais, refletindo um envelhecimento do estoque ativo com baixa renovação.</li>
+        </ul>
+        <p>➡️ <i style="font-weight: bold; color: #FF0000;">Conclusão:</i> Menos jovens estão entrando na profissão, aqueles que entram já são mais velhos e experientes, e a força de trabalho atual está envelhecendo sem uma substituição à altura, gerando um desequilíbrio geracional.</p>
+    </div>
 </div>
 
------
+---
 
---------------------------------------------------------------------------------------------
+## 5. Análise Econômica e Indicadores de Dinâmica de Mercado
 
-## Indicadores de dinâmica de mercado
+Esta seção explora como fatores econômicos e as dinâmicas internas do mercado de trabalho impactam a categoria de motoristas de caminhão.
+
+### 5.1 🔸 Saldo de Empregos e Taxa de Turnover
+
+A relação entre o saldo de empregos e a taxa de turnover é crucial para entender a saúde do mercado de trabalho para motoristas.
 
 
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <div style="max-width: 880px;">   
-  <h4> 🔸 Admissão vs Demissão + Turnover</h4> 
-    <ul>
-      <li><strong>2010–2013: </strong> Mercado aquecido, admissões superam demissões com folga.</li>
-      <li><strong>2014–2017:</strong>  Inversão crítica — demissões passam admissões, gerando saldos negativos. </li>
-      <li><strong>2018–2024: </strong> Retomada cíclica, com destaque para 2021–2024 (forte expansão).</li>
-      <li><strong>Turnover 2016 (~1.08): </strong> Momento de mais instabilidade do setor.</li>
-      <li><strong>Turnover até 2021 (~ 0.94): </strong> Sugere menor movimentação — pode indicar retenção forçada ou baixa atratividade.</li>         
-    </ul>
-    <p> Setor reage, mas não resolve: admissões voltam a subir, turnover ainda preocupa.</p>
-  </div>
-  <img src="5_admissoes_demissoes_turnover.png" style="width: 880px;">
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="5_empregados_turnover.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>Até 2014 - Volatilidade de Base e Estabilidade Relativa:</strong> O setor apresentava uma taxa de turnover em torno de 0.96. Este valor indica que para cada 100 contratações, aproximadamente 96 desligamentos ocorriam, refletindo um nível de volatilidade constante. Contudo, <strong>em comparação com os picos de rotatividade observados nos anos posteriores</strong>, este período demonstrou uma relativa estabilidade do emprego para os motoristas.</li>
+            <li><strong>2014-2016 - Impacto da Recessão:</strong> Durante a recessão econômica, o turnover aumentou significativamente, refletindo um período de alta demissão e redução drástica no saldo total de empregos.</li>
+            <li><strong>2017 - Recuperação Tímida, Turnover Elevado:</strong> Uma leve recuperação no saldo de empregos, mas o turnover permaneceu alto, sugerindo que a melhora não foi suficiente para gerar segurança no setor. Essa combinação de insatisfação pode ter contribuído para a greve dos caminhoneiros em 2018.</li>
+            <li><strong>Pós-Greve (2019) e Pandemia (2020) - Recuperação da Demanda:</strong> Houve uma forte recuperação do saldo de empregos, impulsionada pela alta demanda por transporte, especialmente durante a pandemia. O turnover reduziu um pouco, refletindo uma melhor segurança e atratividade temporária.</li>
+            <li><strong>2022 - Guerra na Ucrânia e Instabilidade:</strong> O saldo foi novamente impulsionado, mas o turnover voltou a crescer, indicando que, embora houvesse mais empregos, a instabilidade ou insatisfação dos motoristas persistia (possivelmente devido à pressão dos custos operacionais e incertezas econômicas globais).</li>
+            <li><strong>2023 e 2024 - Estabilização Recente:</strong> Retorno do saldo a níveis mais baixos e do turnover a patamares semelhantes ao início da série histórica (2010-2011), refletindo uma retomada da estabilidade após períodos mais turbulentos.</li>
+        </ul>
+        <p>➡️ <i i style="font-weight: bold; color: #FF0000;">Conclusão:</i> O setor de transporte de carga é altamente sensível a choques econômicos e geopolíticos, com esses eventos impactando diretamente a rotatividade e a estabilidade dos empregos.</p>
+    </div>
 </div>
 
+---
 
------------------------------
+### 5.1.1 🔸 Saldo Acumulado e Taxa de Turnover
 
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <img src="6_rotatividade_saldo.png" style="width: 800px; margin-right: 30px;">
-  <div style="max-width: 880px;">
-    <h4>🔸 Saldo vs Rotatividade </h4>
-    <ul>
-      <li><strong>2010-2013:</strong> Crescimento moderado, com saldos positivos.</li>
-      <li><strong>2013-2017:</strong> Colapso total da contratação líquida — saldos negativos crescentes, com pico em 2016 (–54.000).</li>    
-     <li><strong>2018-:</strong> Recuperação progressiva, com saldo positivo em todos os anos até 2024.</li>
-    </ul>
-    <p>🔴 Rotatividade:</strong>Alta rotatividade em 2015–2016 (~0.54) indica instabilidade severa, com muitos desligamentos, Queda consistente até 2021 (~0.47) pode sugerir menor movimentação por retração do mercado, ou, <br>
-    etenção de profissionais mais velhos sem substituição (como indicado nos outros gráficos).</p>
-    <p>Mesmo com saldos positivos, o setor ainda gira em círculos: a rotatividade segue elevada.</strong></p>
-  </div>
+A visão acumulada do saldo de movimentações em conjunto com a taxa de turnover mostra o efeito de longo prazo das dinâmicas do mercado.
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="5_empregados_acumulados_turnover.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+</div>
+<div style="width: 100%; max-width: 900px; text-align: left;">
+    <ul>
+        <li><strong>Crescimento Acumulado até 2014:</strong> O saldo acumulado de movimentações cresceu consistentemente, indicando uma expansão líquida de empregos formais na categoria. Durante este período, a taxa de turnover se manteve em um **patamar de volatilidade de base**, que, embora não seja ideal para a estabilidade, representava o menor nível observado na série histórica até então.</li>
+        <li><strong>Impacto da Recessão (2014-2016):</strong> O saldo acumulado sofre uma queda expressiva, e a taxa de turnover atinge seu pico histórico, evidenciando a intensidade da perda de empregos e a alta rotatividade no período.</li>
+        <li><strong>Recuperação e Crescimento (2017-2024):</strong> Apesar dos desafios (greve, pandemia, guerra), o saldo acumulado retoma o crescimento, atingindo patamares significativos em 2024. No entanto, o turnover, embora não atinja os picos de 2016, mostra que a movimentação de entrada e saída de profissionais continua presente, indicando que a estabilidade ainda é um desafio.</li>
+    </ul>
+    <p>🔴 <i style="font-weight: bold; color: #FF0000;">Rotatividade Persistente:</i> Mesmo com saldos positivos e um crescimento acumulado, a rotatividade no setor ainda é elevada, o que sugere que, apesar das novas admissões, há uma dificuldade em reter os profissionais, resultando em uma instabilidade de mão de obra.</p>
 </div>
 
+---
 
-----
-## Análise Econômica: o Salário como Fator Estruturante 
+### 5.2 🔸 Estoque de CNHs vs. Poder de Compra
 
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <div style="max-width: 880px;">   
-  <h4> 🔹 Saldo vs Poder de Compra</h4> 
-    <ul>      
-      <li><strong>2014–2017:</strong>  Tendência preocupante, saldo negativo até -54 mil. </li>
-      <li><strong>2018–2024: </strong> Recuperação pós 2018, com perda de a partir de 2023.</li>
-      <li><strong>Poder de Compra (salários mínimos): </strong> Pico em 2011 (~1.96) e queda contínua até 2024 (~1.74)</li>      
-    </ul>
-    <p> Mesmo com salário médio aumentando nominalmente, o mínimo cresceu mais → perda de poder de compra real. Fica evidente que ganhar mais em valor absoluto não significa manter o padrão de vida.</p>
-  </div>
-  <img src="7_saldo_poder_compra.png" style="width: 880px;">
+A comparação entre o estoque de motoristas habilitados e seu poder de compra revela um descompasso preocupante entre a oferta potencial de mão de obra e a qualidade de vida.
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="5_evolucao_estoque_poder_compra.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>2011-2015 - Expansão do Estoque, Queda do Poder de Compra:</strong> Período de crescimento consistente no número de motoristas habilitados, atingindo um pico de 13.16 milhões. No entanto, o poder de compra já apresentava sinais de deterioração, caindo de quase 2x o salário mínimo para patamares inferiores.</li>
+            <li><strong>2016-2020 - Inversão de Tendência:</strong> Há uma queda no estoque de CNHs e uma continuidade na queda do poder de compra. Esse movimento pode indicar uma desmotivação da categoria diante da perda de capacidade de consumo e condições de trabalho menos atrativas, levando a uma não renovação ou abandono da profissão.</li>
+            <li><strong>2021-2024 - Estabilização do Estoque, Poder de Compra em Baixa:</strong> O estoque de CNHs se estabiliza em um patamar mais baixo do que o pico de 2015, e o poder de compra continua estagnado ou em leve declínio.</li>
+        </ul>
+        <p>➡️ <i style="font-weight: bold; color: #FF0000;">Conclusão:</i> A perda de poder de compra, um reflexo da baixa remuneração em relação aos custos de vida, impacta diretamente a atratividade da profissão, desincentivando a renovação do estoque de motoristas habilitados. Muitos habilitados podem estar optando por outras atividades que ofereçam melhor retorno financeiro.</p>
+    </div>
 </div>
 
+---
 
------------------------------
+### 5.3 🔹 Salário Médio vs. Salário Mínimo vs. Mínimo Necessário (DIEESE)
 
+A análise comparativa entre o salário médio dos caminhoneiros, o salário mínimo e o salário mínimo necessário calculado pelo DIEESE é um dos indicadores mais críticos para entender a atratividade da profissão.
 
-<div style="display: flex; align-items: flex-start; margin-bottom: 40px;">
-  <img src="7_salario_medio_minimo_necessario.png" style="width: 800px; margin-right: 30px;">
-  <div style="max-width: 880px;">
-    <h4>🔹 Salário Médio vs Mínimo vs DIEESE </h4>
-    <ul>
-      <li><strong>🔵 Salário Médio (Caminhoneiros): </strong> Cresce de ~R$ 975 (2010) para ~R$ 2.500 (2024). Dobrou em termos nominais, mas não acompanhou o custo de vida real (linha laranja).</li>
-      <li><strong>⚫ Salário Mínimo</strong> Evolução lenta e linear: R$ 510 → R$ 1.412.</li>    
-     <li><strong>🟠 Mínimo Necessário (DIEESE)</strong> Sobe de ~R$ 2.100 para mais de R$ 7.300.Mostra quanto uma família de 4 pessoas realmente precisaria para viver com dignidade no Brasil.</li>
-    </ul>  
-    <p>Mais contratações, menos poder de compra: um setor pressionado?<br></p>
-    <p>Mesmo com aumento, o salário do caminhoneiro cobre menos de 35% do mínimo necessário para viver dignamente". O Salário médio dos caminhoneiros sempre ficou bem abaixo do mínimo necessário.<br>
-    Isso justifica a baixa atratividade da profissão, Não compensa o esforço, jornada e desgaste físico e leva à fuga de jovens e envelhecimento da força de trabalho.</p>
-  </div>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="7_salario_medio_minimo_necessario.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>Salário Médio (Caminhoneiros):</strong> Cresce de aproximadamente R$ 975 em 2010 para cerca de R$ 2.500 em 2024. Embora tenha dobrado em termos nominais, este aumento não acompanhou o custo de vida real.</li>
+            <li><strong>Salário Mínimo:</strong> Demonstra uma evolução lenta e linear, passando de R$ 510 para R$ 1.412 no mesmo período.</li>
+            <li><strong>Mínimo Necessário (DIEESE):</strong> Este indicador, que representa o valor que uma família de 4 pessoas realmente precisaria para viver com dignidade no Brasil, sobe drasticamente de aproximadamente R$ 2.100 para mais de R$ 7.300.</li>
+        </ul>
+        <p>🚨 <i style="font-weight: bold; color: #FF0000;">Déficit de Renda:</i> O salário médio dos caminhoneiros formalizados sempre permaneceu bem abaixo do mínimo necessário para uma vida digna. Em 2024, ele cobria menos de 35% do valor considerado essencial. Esta disparidade justifica a baixa atratividade da profissão, pois o retorno financeiro não compensa o esforço, a jornada exaustiva e o desgaste físico, levando à fuga de jovens e ao envelhecimento da força de trabalho (Capítulo 9).</p>
+    </div>
 </div>
 
--------
+---
 
-## Matriz de Correlação
+## 6. Indicadores e Estoque de Habilitações
 
-|                   | salario_medio | salario_minimo | minimo_necessario | poder_compra | admissao | demissao | saldo_total | idade_media | taxa_turnover | rotatividade | atratividade | escassez | retencao |
-|-------------------|---------------|----------------|--------------------|---------------|-----------|-----------|--------------|--------------|----------------|---------------|----------------|-----------|-----------|
-| **salario_medio**       | 1.00          | 1.00           | 0.97               | -0.89         | 0.33      | 0.30      | 0.19         | 0.94         | -0.15          | -0.09         | 0.09           | -0.11     | 0.10      |
-| **salario_minimo**      | 1.00          | 1.00           | 0.98               | -0.91         | 0.37      | 0.34      | 0.21         | 0.93         | -0.17          | -0.11         | 0.11           | -0.12     | 0.12      |
-| **minimo_necessario**   | 0.97          | 0.98           | 1.00               | -0.93         | 0.50      | 0.45      | 0.31         | 0.89         | -0.24          | -0.18         | 0.18           | -0.14     | 0.19      |
-| **poder_compra**        | -0.89         | -0.91          | -0.93              | 1.00          | -0.40     | -0.36     | -0.25        | -0.85        | 0.15           | 0.09          | -0.09          | 0.07      | -0.12     |
-| **admissao**            | 0.33          | 0.37           | 0.50               | -0.40         | 1.00      | 0.95      | 0.47         | 0.08         | -0.35          | -0.31         | 0.31           | -0.35     | 0.34      |
-| **demissao**            | 0.30          | 0.34           | 0.45               | -0.36         | 0.95      | 1.00      | 0.18         | 0.01         | -0.06          | -0.02         | 0.02           | -0.09     | 0.05      |
-| **saldo_total**         | 0.19          | 0.21           | 0.31               | -0.25         | 0.47      | 0.18      | 1.00         | 0.24         | -0.98          | -0.96         | 0.96           | -0.86     | 0.98      |
-| **idade_media**         | 0.94          | 0.93           | 0.89               | -0.85         | 0.08      | 0.01      | 0.24         | 1.00         | -0.23          | -0.18         | 0.18           | -0.13     | 0.18      |
-| **taxa_turnover**       | -0.15         | -0.17          | -0.24              | 0.15          | -0.35     | -0.06     | -0.98        | -0.23        | 1.00           | 0.99          | -0.99          | 0.90      | -1.00     |
-| **rotatividade**        | -0.09         | -0.11          | -0.18              | 0.09          | -0.31     | -0.02     | -0.96        | -0.18        | 0.99           | 1.00          | -1.00          | 0.89      | -0.99     |
-| **atratividade**        | 0.09          | 0.11           | 0.18               | -0.09         | 0.31      | 0.02      | 0.96         | 0.18         | -0.99          | -1.00         | 1.00           | -0.89     | 0.99      |
-| **escassez**            | -0.11         | -0.12          | -0.14              | 0.07          | -0.35     | -0.09     | -0.86        | -0.13        | 0.90           | 0.89          | -0.89          | 1.00      | -0.92     |
-| **retencao**            | 0.10          | 0.12           | 0.19               | -0.12         | 0.34      | 0.05      | 0.98         | 0.18         | -1.00          | -0.99         | 0.99           | -0.92     | 1.00      |
+Esta seção explora o panorama do estoque de motoristas habilitados no Brasil, crucial para entender a disponibilidade de mão de obra.
 
-### Interpretação:
+### 6.1 🔹 Evolução de CNHs Habilitadas para Conduzir Caminhão
 
-## 🔗 Resumo das Correlações Relevantes 
+A análise do estoque de CNHs aptas para dirigir caminhões (categorias C, D ou E) revela tendências importantes sobre a oferta potencial de motoristas.
 
-| Variáveis                              | Correlação | Interpretação                                                                       |
-|----------------------------------------|------------|-------------------------------------------------------------------------------------|
-| Salário Médio × Idade Média            | +0.94      | Profissionais mais velhos/experientes ganham mais. Jovens entram menos ou saem mais cedo.|
-| Salário Médio × Salário Mínimo         | +1.00      | O salário cresce, mas apenas acompanha o mínimo legal.                             |
-| Salário Médio × Mínimo Necessário      | +0.97      | Os salários seguem o custo estimado pelo DIEESE, mas sempre abaixo do ideal.       |
-| Poder de Compra × Mínimo Necessário    | –0.93      | Quanto maior o custo de vida, menor o poder de compra do caminhoneiro, aumento dos salários não está acompanhando o aumento do custo de vida ou da inflação.|
-| Poder de Compra × Idade Média          | –0.85      | A força de trabalho envelhece e compra menos com o que ganha.                      |
-| Admissão × Demissão                    | +0.95      | Alta contratação vem junto com alta demissão — o setor gira muito.                 |
-| Saldo Total × Taxa de Turnover         | –0.98      | Quando o setor está perdendo trabalhadores, o turnover explode.                    |
-| Saldo Total × Atratividade             | +0.96      | Mais contratações líquidas tornam a profissão mais atrativa.                       |
-| Saldo Total × Retenção                 | +0.98      | Onde o setor cresce, ele também consegue manter melhor seus profissionais.         |
-| Atratividade × Rotatividade            | –1.00      | Quanto mais pessoas saem, menos o setor atrai novas.                               |
-| Escassez × Turnover                    | +0.90      | Quanto mais gente sai rapidamente, maior a escassez de mão de obra.                |
-| Escassez × Retenção                    | –0.92      | Quanto pior a retenção, maior a escassez de motoristas.                            |
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="8_estoque_cnh.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>Crescimento Inicial e Pico:</strong> O total de CNHs aptas a dirigir caminhões cresceu de 11,8 milhões em 2011 para um pico de 13,2 milhões em 2015, indicando uma expansão na base de motoristas habilitados.</li>
+            <li><strong>Queda Contínua (2016-2021):</strong> A partir de 2016, houve uma queda contínua no estoque, atingindo um mínimo de 11,41 milhões em 2021. Este declínio pode ser um reflexo da menor renovação de habilitações ou da inatividade de motoristas.</li>
+            <li><strong>Leve Recuperação Recente:</strong> Desde 2022, observa-se uma leve recuperação, chegando a 11,55 milhões em 2024.</li>
+        </ul>
+        <p>➡️ <i style="font-weight: bold; color: #FF0000;">Implicação:</i> Este padrão indica um envelhecimento natural da frota habilitada, com renovação insuficiente para manter o crescimento observado no período pré-2016. Muitos motoristas podem estar deixando de renovar suas habilitações devido à falta de atratividade da profissão.</p>
+    </div>
+</div>
 
+---
 
-- **Quanto maior o salário, maior a idade média:** Há uma forte correlação positiva entre salário (médio e mínimo) e idade média, sugerindo que a experiência e a idade da força de trabalho estão ligadas a salários mais altos;
-- **Quanto maior o custo de vida, menor o poder de compra:** Mesmo que os salários nominais subam, eles não acompanham o custo real de vida (calculado pelo DIEESE), resultando em um menor poder de compra. Isso aponta para desafios em manter o poder aquisitivo; 
-- **Rotatividade alta = perda de profissionais:** Quanto mais gente sai e entra rapidamente, maior a perda líquida de trabalhadores, o que é evidenciado pela forte correlação negativa entre Saldo Total e Taxa de Turnover/Rotatividade.
-- **Menor entrada de novos profissionais = menos atratividade e retenção:** A atratividade e a retenção são diretamente impactadas pela rotatividade, com uma correlação negativa quase perfeita. Ou seja, quanto mais pessoas saem, menos o setor atrai e retém novos profissionais.;
-- **Escassez está ligada à instabilidade:**  A escassez de mão de obra se intensifica nos anos em que há alta rotatividade, baixa retenção e poder de compra em queda. Isso confirma que o problema não está apenas na entrada de novos profissionais, mas também nas condições para mantê-los na profissão.
+### 6.2 🔹 Estoque de CNH e Aumento da Faixa Etária (70+)
 
+A combinação da queda no estoque total de CNHs com o aumento da parcela de habilitados com mais de 70 anos reforça o problema do envelhecimento da categoria.
 
------
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="8_estoque_cnh_mais_70_idade_media.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>Queda no Estoque e Envelhecimento Concomitante:</strong> O estoque total de CNHs inicia um forte declínio (de 13,16 milhões para 11,41 milhões em 2021). Em paralelo, a parcela de habilitados com <strong>70 anos ou mais</strong> cresce significativamente, de 0,40 milhão (2011) para 1,18 milhão (2024). Isso sugere que a perda líquida de CNHs vem principalmente de desistências ou não-renovações entre motoristas mais jovens, enquanto a população mais idosa permanece ativa.</li>
+            <li><strong>Aumento da Idade Média:</strong> A idade média dos motoristas habilitados acompanha esse deslocamento, saltando de aproximadamente 37 anos em 2011 para cerca de 40.8 (40 anos e 10 meses) anos em 2024. O aumento mais acentuado ocorre logo após o período de 2014–2016, reforçando que, mesmo com menos habilitados no total, o perfil que permanece é progressivamente mais velho.</li>
+        </ul>
+        <p>🚨 <i style="font-weight: bold; color: #FF0000;">Risco Duplo:</i> Essa combinação – estoque geral em queda e envelhecimento concentrado – aponta para um risco duplo para o setor: menos renovação de motoristas habilitados e aumento da vulnerabilidade a fatores de saúde e aposentadoria para a base de mão de obra ativa.</p>
+    </div>
+</div>
 
-## 🔍 Limitações do Estudo
+---
 
+### 6.3 🔹 Estoque de CNHs vs. Motoristas Empregados Formalmente
 
-- **CAGED não capta autônomos nem MEIs**, o que deixa de fora uma parcela significativa da força de trabalho, especialmente:
-  - Motoristas de aplicativos
-  - Caminhoneiros independentes
-  - Profissionais terceirizados via frota agregada
+Esta comparação crucial revela a lacuna entre o potencial de mão de obra e a efetiva utilização de motoristas no mercado formal.
 
-- **Ausência de dados sobre jornada de trabalho**, tempo médio em rodovias, pausas ou condições de saúde.
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 40px;">
+    <img src="9_.png" style="width: 100%; max-width: 900px; height: auto; object-fit: contain; margin-bottom: 20px;">
+    <div style="width: 100%; max-width: 900px; text-align: left;">
+        <ul>
+            <li><strong>Dados da RAIS 2023:</strong> Registrou 1.714.780 motoristas de caminhão formalmente empregados.</li>
+            <li><strong>Estoque Total de Habilitados:</strong> O número de motoristas com habilitação (C, D ou E) para conduzir caminhões é de 11.550.608.</li>
+            <li><strong>Grande Saldo Não Utilizado:</strong> Apenas aproximadamente 15% das pessoas que possuem habilitação para conduzir caminhão estão, de fato, atuando no setor formal.</li>
+        </ul>
+        <p>➡️ <i style="font-weight: bold; color: #FF0000;">Consideração Crucial:</i> Há um vasto reservatório de mão de obra potencialmente qualificada que não está sendo utilizada pelo setor formal. Isso sugere que a escassez de motoristas não é meramente uma falta de pessoas habilitadas, mas sim uma questão multifacetada, fortemente influenciada pela atratividade e pelas condições da profissão, que desmotivam muitos habilitados a ingressarem ou permanecerem no mercado formal de caminhões.</p>
+    </div>
+</div>
 
+---
 
-> ⚠️ Esses dados mostrados refletem apenas o contexto dos empregos **formais**, não necessariamente uma redução real na demanda desses profissionais.
+## 7. 🔍 Limitações do Estudo
 
+É fundamental reconhecer as limitações deste estudo para uma interpretação precisa dos resultados:
 
------
+* **Foco em Dados Formais (CAGED):** O CAGED não capta motoristas autônomos, Microempreendedores Individuais (MEIs) ou profissionais terceirizados via frota agregada. Isso significa que uma parcela significativa da força de trabalho, especialmente motoristas de aplicativos e caminhoneiros independentes, não está incluída na análise.
+    > ⚠️ *Esses dados mostram apenas o contexto dos empregos **formais**, não necessariamente uma redução real na demanda desses profissionais no mercado total.*
 
-## 🚫 Fatores Qualitativos da Profissão
+* **Ausência de Dados Qualitativos Detalhados:** O estudo não pôde incluir informações detalhadas sobre a jornada de trabalho real (além das horas registradas formalmente), o tempo médio em rodovias, as pausas realizadas ou as condições de saúde específicas dos motoristas.
 
-- 💰 **Remuneração instável:** [Salários variáveis e muitas vezes insuficientes frente às exigências do trabalho.](https://estradao.estadao.com.br/caminhoes/cnt-e-governo-criam-programa-para-diminuir-falta-de-caminhoneiros-brasil/)
-- 🕐 **Jornada exaustiva:** [Longas horas de trabalho com pouco suporte na estrada.](https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2023/novembro/operacao-jornada-legal-flagra-motoristas-em-jornadas-exaustivas)
-- 🚫 **Condições precárias:** [Falta de estrutura nos postos de parada, higiene básica e outros.](https://www.ipea.gov.br/portal/categorias/45-todas-as-noticias/noticias/15073-estudo-revela-precarizacao-das-condicoes-de-trabalho-de-motoristas-e-entregadores-por-aplicativos)
-- 🔐 **Insegurança:** [Roubo de cargas, violência nas estradas, medo constante.](https://ocarreteiro.com.br/roubo-de-carga/roubo-de-carga-2/)
-- 👨‍👩‍👦 **Impacto pessoal:** Profissionais mais velhos permanecem por necessidade; jovens evitam entrar na carreira.
-- 🎓 **Escolaridade e aspirações:** A predominância de ensino médio completo entre os motoristas sugere que níveis mais altos de escolaridade tendem a afastar os profissionais da carreira, pois outros setores oferecem melhores condições e reconhecimento.
+---
 
----------------
+## 8. 🚫 Fatores Qualitativos da Profissão
 
-## 📌  Conclusão 
+Além dos dados quantitativos, é essencial considerar os fatores qualitativos que impactam diretamente a atratividade e a retenção de motoristas de caminhão:
 
-A análise dos dados do CAGED revela um cenário preocupante para a categoria de motoristas de caminhão no Brasil. A força de trabalho está envelhecendo rapidamente, e a entrada de novos profissionais não tem sido suficiente para compensar a saída dos mais experientes. Esse desequilíbrio evidencia um risco real de colapso no setor nos próximos anos.
+* **💰 Remuneração Instável e Insuficiente:** Salários variáveis e muitas vezes inadequados frente às exigências do trabalho e aos custos de vida.
+    * *Referências:* [CNT e Governo criam programa para diminuir falta de caminhoneiros Brasil](https://estradao.estadao.com.br/caminhoes/cnt-e-governo-criam-programa-para-diminuir-falta-de-caminhoneiros-brasil/)
+* **🕐 Jornada Exaustiva:** Longas horas de trabalho, muitas vezes sem infraestrutura de apoio adequada ou tempo suficiente para descanso.
+    * *Referências:* [Operação Jornada Legal flagra motoristas em jornadas exaustivas](https://www.gov.br/trabalho-e-emprego/pt-br/noticias-e-conteudo/2023/novembro/operacao-jornada-legal-flagra-motoristas-em-jornadas-exhaustivas)
+* **🚫 Condições Precatórias:** Falta de estrutura básica em postos de parada, condições de higiene inadequadas e ausência de ambientes seguros para descanso.
+    * *Referências:* [Estudo revela precarização das condições de trabalho de motoristas e entregadores por aplicativos](https://www.ipea.gov.br/portal/categorias/45-todas-as-noticias/noticias/15073-estudo-revela-precarizacao-das-condicoes-de-trabalho-de-motoristas-e-entregadores-por-aplicativos)
+* **🔐 Insegurança:** Altos índices de roubo de cargas e violência nas estradas geram um medo constante, impactando a saúde mental e física dos profissionais.
+    * *Referências:* [Roubo de carga](https://ocarreteiro.com.br/roubo-de-carga/roubo-de-carga-2/), [Insegurança é o principal ponto negativo da profissão de caminhoneiro](https://www.cnt.org.br/agencia-cnt/inseguran%C3%A7a-e-o-principal-ponto-negativo-da-profissao-de-caminhoneiro)
+* **👨‍👩‍👦 Impacto Pessoal e na Saúde Mental:** O isolamento social, a ausência do convívio familiar e a pressão por produtividade afetam negativamente a saúde mental dos motoristas, contribuindo para quadros de estresse, ansiedade e depressão.
+    * *Referências:* [A importância da saúde mental para motoristas de caminhão](https://www.garbuio.com.br/a-importancia-da-saude-mental-para-motoristas-de-caminhao/)
+* **🎓 Escolaridade e Aspirações:** Embora a escolaridade média esteja aumentando, a predominância de ensino médio completo entre os motoristas sugere que níveis mais altos de escolaridade tendem a afastar os profissionais da carreira, pois outros setores podem oferecer melhores condições e reconhecimento, levando a uma busca por melhores oportunidades.
+    * *Referências:* [Baixo rendimento e escolaridade prevalecem entre caminhoneiros brasileiros](https://monitormercantil.com.br/baixo-rendimento-e-escolaridade-prevalecem-entre-caminhoneiros-brasileiros)
 
-Embora múltiplos fatores contribuam para essa escassez, os dados apontam que a questão salarial é o principal obstáculo. A perda de poder de compra, somada às condições adversas de trabalho, tem afastado jovens da profissão e dificultado a permanência dos que já atuam na área.
+---
 
-A escassez não é só demográfica — ela é estrutural, econômica e também resultado de instabilidade dentro da própria categoria.
+## 9. 📌 Conclusão e Recomendações
 
-Diante desse cenário, é fundamental a articulação de políticas públicas que promovam a formação profissional, incentivem a entrada de jovens, ampliem a participação de mulheres na categoria e melhorem as condições estruturais da atividade. Sem essas medidas, a tendência é de agravamento da crise de mão de obra no transporte rodoviário nos próximos anos.
+A análise aprofundada dos dados do **CAGED**, RENACH e DIEESE revela um alerta claro: a categoria de motoristas de caminhão no Brasil enfrenta um processo acelerado de envelhecimento, com entrada insuficiente de novos profissionais para repor os que deixam a atividade. Se mantida essa tendência, o setor poderá enfrentar um colapso funcional nos próximos anos, com graves impactos para a economia do país.
 
+Há um **grande reservatório de mão de obra potencialmente qualificada** (os mais de 11 milhões de habilitados C, D, E) que não está sendo utilizada pelo setor formal. Isso demonstra que a escassez não é apenas demográfica ou de formação inicial, mas uma questão estrutural, econômica e operacional, influenciada decisivamente pela **baixa atratividade da profissão**.
 
+Entre os fatores identificados, a **perda de poder de compra** (salários muito abaixo do mínimo necessário para uma vida digna) e as **condições precárias de trabalho** (jornadas exaustivas, insegurança, falta de infraestrutura e impacto na saúde mental) se destacam como os principais entraves à atração e retenção de mão de obra.
+
+Diante desse cenário, é urgente que lideranças públicas e privadas articulem estratégias coordenadas e eficazes para enfrentar o problema. Algumas diretrizes prioritárias incluem:
+
+* **Revisão da Política de Remuneração:** Foco na recomposição do poder de compra dos salários, garantindo um retorno financeiro que justifique o investimento e o esforço exigido pela profissão.
+* **Incentivos à Formação e Certificação Profissional:** Programas direcionados a jovens e mulheres, desmistificando a profissão e oferecendo capacitação de qualidade para ingresso no setor.
+* **Investimentos em Infraestrutura e Segurança Rodoviária:** Melhoria das condições de descanso, segurança em postos de parada e combate eficaz ao roubo de cargas e à violência nas estradas.
+* **Campanhas de Valorização da Profissão:** Iniciativas que resgatem a imagem e o prestígio da carreira de motorista de caminhão, focando na renovação geracional e mostrando as possibilidades de desenvolvimento.
+* **Melhora das Condições de Trabalho e Bem-Estar:** Atenção à saúde mental dos motoristas, oferecendo suporte psicológico e promovendo um ambiente de trabalho mais humano e justo.
+
+Sem ações concretas e coordenadas, a continuidade e a eficiência do transporte rodoviário – vital para a economia brasileira – estarão seriamente comprometidas.
+
+---
+*Estudo realizado em 29 de maio de 2025.*
